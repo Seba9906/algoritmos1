@@ -28,3 +28,6 @@ pares :: [Integer] -> [Integer]
 pares [] = []
 pares (x:xs)      | x `mod` 2 /= 0 = pares xs
                   | otherwise = x:pares xs
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ (aplanar xs)
