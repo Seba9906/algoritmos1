@@ -100,3 +100,15 @@ esMultiplo :: Integer->Integer -> Bool
 esMultiplo n m = n `mod` m == 0
 
 multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN _ [] = []
+multiplosDeN n (x:xs) | esMultiplo x n = x : multiplosDeN n xs
+                      | otherwise = multiplosDeN n xs
+
+insertar :: Integer -> [Integer] -> [Integer]
+insertar x [] = [x]
+insertar x (y:ys) | x <= y = x : y : ys
+                  | otherwise = y : insertar x ys
+
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar (x:xs) = insertar x (ordenar xs)
