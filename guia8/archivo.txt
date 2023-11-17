@@ -1,0 +1,21 @@
+the beautiful people
+esto es una linea
+aca hay otra 
+
+#esto es un comentario
+cuantas lineas
+
+# esto es un comentario
+
+# esto es un comentario
+
+que tiene este archivo #esto no es un comentario
+asi es #no es un comentario
+
+sweet dreams are made of this
+no
+no
+no
+no
+no
+no no no
