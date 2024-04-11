@@ -1,0 +1,22 @@
+extraerPrimerPalabra :: [Char] -> [Char]
+extraerPrimerPalabra [] = []
+extraerPrimerPalabra (x:xs)
+    | x == ' ' = []
+    | otherwise = x : extraerPrimerPalabra xs
+
+descartarPrimerPalabra :: [Char] -> [Char] --obtener el resto de la lista sin la primera palabra
+descartarPrimerPalabra [] = []
+descartarPrimerPalabra (x:xs)
+    | x == ' ' = xs
+    | otherwise = descartarPrimerPalabra xs
+
+palabras :: [Char] -> [[Char]]
+palabras l = palabrasAux (quitarBlancosIniFin (sacarBlancosRepetidos l))
+
+palabrasAux :: [Char] -> [[Char]] --extraemos las palabras individuales y las acumulamos en una lista
+palabrasAux [] = []
+palabrasAux l
+    | palabra == [] = palabrasAux (descartarPrimerPalabra l)
+    | otherwise = palabra : palabrasAux (descartarPrimerPalabra l)
+    where
+        palabra = extraerPrimerPalabra l

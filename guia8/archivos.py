@@ -10,7 +10,6 @@ def contar_lineas(nombre_archivo:str)->int:
 def existe_palabra(palabra:str,nombre_archivo:str)->bool:
     archivo = open(nombre_archivo,'r',encoding='utf-8')
     for linea in archivo.readlines():
-        print(linea)
         if palabra in linea:
             return True
         return False
@@ -74,4 +73,60 @@ def frase_al_principio(nombre_archivo:str,frase:str):
     archivo.write(frase + "\n")
     archivo.write(contenido)
     archivo.close()
-frase_al_principio('archivo.txt','the beautiful people')
+# frase_al_principio('archivo.txt','the beautiful people')
+
+def agruparPorLongitud(nombreArchivo:str)->dict:
+    resultado:dict={}
+    archivo = open(nombreArchivo,'r',encoding='utf-8')
+    contenido = archivo.read()
+    archivo.close()
+    palabras = contenido.split()
+    for palabra in palabras:
+        longitud= len(palabra)
+        if longitud not in resultado:
+            resultado[longitud] = 1
+        else:
+            resultado[longitud] += 1
+    return resultado
+
+# print(agruparPorLongitud('archivo.txt'))
+
+def la_palabra_mas_frecuente(nombreArchivo:str)->str:
+    frecuencias:dict={}
+    palabra_mas_frecuente = ''
+    max_frecuencia = 0
+    archivo = open(nombreArchivo, 'r', encoding='utf-8')
+    contenido = archivo.read()
+    archivo.close()
+    palabras = contenido.split()
+    for palabra in palabras:
+        palabra = palabra.lower()
+        if palabra in frecuencias:
+            frecuencias[palabra] +=1
+        else:
+            frecuencias[palabra] = 1
+    if frecuencias[palabra] < max_frecuencia:
+        palabra_mas_frecuente = palabra
+        max_frecuencia = frecuencias[palabra]
+    return palabra_mas_frecuente
+
+def cuentaPosicionesPorNacion(naciones:list,torneos:dict):
+    resultados:dict={}
+    for nacion in naciones:
+        resultados[nacion] = [0] * len(naciones)
+    for año,posiciones in torneos.items():
+        for i in range(len(naciones)):
+            nacion = posiciones[i]
+            resultados[nacion][i] +=1
+    return resultados
+# Ejemplo de uso
+naciones = ["arg", "aus", "nz", "sud"]
+torneos = {
+    2023: ["nz", "sud", "arg", "aus"],
+    2022: ["nz", "sud", "aus", "arg"]
+}
+
+# Llamando a la función e imprimiendo el resultado
+resultado = cuentaPosicionesPorNacion(naciones, torneos)
+for nacion, posiciones in resultado.items():
+    print(f"{nacion}: {posiciones}")
