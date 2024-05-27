@@ -29,9 +29,6 @@ todosIguales [] = True
 todosIguales [x] = True
 todosIguales (x:y:xs) | x /= y = False
                       | otherwise = todosIguales (y:xs)
-todosIgualesv2 :: (Eq t) => [t] -> Bool
-todosIgualesv2 [] = True
-todosIgualesv2 (x:xs) = pertenece x xs || todosIgualesv2 xs
 
 todosDistintos :: (Eq t) => [t] -> Bool 
 todosDistintos [] = True

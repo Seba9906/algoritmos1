@@ -12,5 +12,5 @@ f4 :: Int -> Float -> Float
 f4 n q = f4' n (2*n) q 
 
 f4' :: Int -> Int -> Float -> Float
-f4' i n q | i == n = q^i 
-            | otherwise = q^i + f4' (i+1) n q 
+f4' i n q | i > 2*n = 0 -- el indice i no puede valer mas que el techo de la sumatoria, usamos el 0 como finalizacion de la recursion
+          | otherwise = q^i + f4' (i+1) n q 

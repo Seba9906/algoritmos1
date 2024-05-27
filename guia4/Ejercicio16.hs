@@ -13,7 +13,7 @@ esDivisible x y | x==y = True
                 | otherwise = esDivisible(x-y) y
 --b)
 esPrimo :: Integer ->Bool 
-esPrimo p = menorDivisor p == p
+esPrimo p = menorDivisor        p == p
 --c)
 sonCoprimos :: Integer ->Integer ->Bool
 sonCoprimos a b = mcd a b == 1
@@ -24,6 +24,6 @@ mcd a b | b == 0 = a
 nEsimoPrimo :: Integer -> Integer
 nEsimoPrimo n = nEsimoPrimoAux n 1 2 --arranco con 2 por que 2 es el primer nro primo
 nEsimoPrimoAux :: Integer -> Integer -> Integer -> Integer
-nEsimoPrimoAux n contador auxiliar | esPrimo auxiliar && contador == n = auxiliar
-                                   | esPrimo auxiliar = nEsimoPrimoAux n (contador + 1) (auxiliar + 1)
-                                   | otherwise = nEsimoPrimoAux n contador (auxiliar + 1)
+nEsimoPrimoAux n contador candidatoPrimo | esPrimo candidatoPrimo && contador == n = candidatoPrimo
+                                   | esPrimo candidatoPrimo = nEsimoPrimoAux n (contador + 1) (candidatoPrimo + 1)
+                                   | otherwise = nEsimoPrimoAux n contador (candidatoPrimo + 1)

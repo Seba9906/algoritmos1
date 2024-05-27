@@ -40,6 +40,6 @@ def es_par(numero:int)->bool:
 def cantidad_de_pizzas(comensales:int,min_cant_de_porciones:int)->int:
     res = math.ceil(comensales*min_cant_de_porciones/8)
     return f"se necesitan {res} pizzas para {comensales} comensales si cada uno quiere comer minimamente {min_cant_de_porciones} porciones"
-# print(cantidad_de_pizzas(4,3))
+# print(cantidad_de_pizzas(5,4))
 
 #8

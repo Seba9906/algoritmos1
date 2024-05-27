@@ -6,4 +6,6 @@ esSumaAux :: Integer -> Integer -> Integer -> Bool
 esSumaAux n suma contadorPrimos
       | n == suma = True
       | n < suma = False
-      | otherwise = esSumaAux n (suma + nEsimoPrimo (contadorPrimos + 1 )) (contadorPrimos + 1) 
+      | otherwise = esSumaAux n (suma + nEsimoPrimo contadorPrimos) (contadorPrimos + 1) 
+
+ 

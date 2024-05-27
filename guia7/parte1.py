@@ -20,14 +20,13 @@ def pertenece_v3(l:list,e:int)->bool:
 
 # print(pertenece_v3([1,2,3],3))
 # print(pertenece_v3([1,2,2],3))
-def divideATodos(l:list,e:int)->bool:
+def divide_a_todos(l:list,e:int)->bool:
     for i in range(len(l)):
         if l[i] % e == 0:
-            return True
+            i+=1
         else:
             return False
-
-# print(divideATodos([4,6,8],5))
+    return True
 
 def sumaTotal(l:list)->int:
     contador:int = 0

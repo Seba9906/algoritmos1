@@ -76,8 +76,11 @@ estanRelacionados a b = a `mod` b == 0
 
 --ej 4
 
+-- prodInt :: (Float,Float) -> (Float,Float) -> Float
+-- prodInt (x1,y1) (x2,y2) = (x1 * x2) + (y1 * y2)
+
 prodInt :: (Float,Float) -> (Float,Float) -> Float
-prodInt (x1,y1) (x2,y2) = (x1 * x2) + (y1 * y2)
+prodInt (x,y) (a,b) = (fst(x,y) * fst (a,b)) + (snd(x,y) + snd(a,b))
 
 todoMenor :: (Float,Float) -> (Float,Float) -> Bool
 todoMenor (x1,y1) (x2,y2) = (x1 < x2) && (y1 < y2)
